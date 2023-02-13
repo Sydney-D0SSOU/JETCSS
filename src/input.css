@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.card{
+    @apply overflow-hidden  bg-white shadow-md rounded-md  relative  hover:drop-shadow-2xl ;
+}
+.menu{
+    @apply text-yellow-400 text-2xl font-mono  ;
+}
+.badge{
+    @apply bg-orange-400 text-yellow-50 text-sm p-2 rounded-full inline absolute h-8 top-0 mx-2 my-2;
+}
