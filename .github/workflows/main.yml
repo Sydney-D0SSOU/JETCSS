@@ -1,0 +1,30 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main # ou la branche que vous souhaitez déployer
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build Tailwind CSS
+      run: npx tailwindcss -i ./src/input.css -o ./dist/output.css
+
+    - name: Deploy to Hosting Service
+      run: |
+        # Ajoutez ici les commandes spécifiques à votre service d'hébergement (par exemple, Netlify, Vercel, etc.)
+        # Exemple : npx vercel --prod
